@@ -1,0 +1,86 @@
+/* Reseta o comportamento do padding, margin e outras propriedades para todos os elementos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    cursor: none; /* Remove o cursor padrão do sistema */
+}
+
+/* Estilo do corpo e da página */
+body,
+html {
+    width: 100%;
+    height: 200vh; /* Aumenta a altura da página para permitir o scroll */
+    background-color: #f9f3e3; /* Cor de fundo suave */
+    overflow: hidden; /* Esconde a barra de rolagem */
+    display: flex; /* Layout flexbox */
+    justify-content: center; /* Alinha no centro horizontalmente */
+    align-items: center; /* Alinha no centro verticalmente */
+    padding: 10px;
+}
+
+/* Cursor Interno (menor) */
+.inner-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 20px; /* Tamanho do cursor menor */
+    height: 20px; /* Tamanho do cursor menor */
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; /* Cor branca */
+    border-radius: 50%; /* Deixa o cursor redondo */
+    mix-blend-mode: difference; /* Contraste com o fundo */
+    pointer-events: none; /* Não interage com o conteúdo */
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.3s ease; /* Transição suave para o tamanho e cor */
+}
+
+/* Cursor Externo (maior) */
+.outer-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50px; /* Tamanho do cursor maior */
+    height: 50px; /* Tamanho do cursor maior */
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: 3px solid #ffffff; /* Borda branca */
+    mix-blend-mode: difference; /* Contraste com o fundo */
+    border-radius: 50%; /* Redondo */
+    pointer-events: none; /* Não interage com o conteúdo */
+    transition: width 0.15s ease, height 0.15s ease, border-width 0.2s ease; /* Transição suave */
+}
+
+/* Quando o cursor está sobre links ou botões, ele aumenta */
+button:hover .outer-cursor, 
+a:hover .outer-cursor {
+    width: 70px; /* Expande o cursor */
+    height: 70px; /* Expande o cursor */
+    border-width: 5px; /* Aumenta a borda */
+    transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
+}
+
+/* Animação de fundo para os links e botões */
+button:hover, a:hover {
+    background-color: #f0c514;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo de link e botão para dar destaque ao passar o mouse */
+button, a {
+    text-decoration: none;
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animação para transformar os botões/link ao passar o mouse */
+button:hover, a:hover {
+    transform: scale(1.1);
+}
